@@ -1,21 +1,21 @@
 """Module providing a function printing python version."""
 
-import sys
-import os
+# import sys
+# import os
 
-# Get the absolute path of the folder containing the current script
-current_dir = os.path.dirname(os.path.realpath(__file__))
-# Get the absolute path of the 'utils' folder from the current folder
-utils_dir = os.path.join(current_dir, '..', 'utils')
-# Add the absolute path of 'utils' to the module search path
-sys.path.append(utils_dir)
+# # Get the absolute path of the folder containing the current script
+# current_dir = os.path.dirname(os.path.realpath(__file__))
+# # Get the absolute path of the 'utils' folder from the current folder
+# utils_dir = os.path.join(current_dir, '..', 'utils')
+# # Add the absolute path of 'utils' to the module search path
+# sys.path.append(utils_dir)
 
-import read_file  # pylint: disable=import-error,
+from packages.utils.read_file import read_file
 
 def main():
     """Main function"""
-    data = read_file.read_file(
-        "advent-of-code-2022/Day 3 - Rucksack Reorganization/input.txt")
+    data = read_file(
+        "advent_of_code_2022/packages/Day_03_Rucksack_Reorganization/input.txt")
     item_sum = prioritize_rearrangement(data)
     print("Part 1", item_sum)
     item_sum_part2 = prioritize_rearrangemenet_three_elves(data)
@@ -109,4 +109,4 @@ def search_same_letter_in_three_compartments(main_c, second_c, third_c):
     return ""
 
 
-main()
+# main()
